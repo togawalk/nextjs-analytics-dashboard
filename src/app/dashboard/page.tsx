@@ -1,7 +1,5 @@
-const PostPage = () => {
-  return (
-    <p>Dashboard</p>
-  )
+const DashboardPage = () => {
+  return <p>Dashboard</p>
 }
 
-export default PostPage
+export default DashboardPage

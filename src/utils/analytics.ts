@@ -1,5 +1,5 @@
-import { redis } from "@/lib/redis";
-import { getDate } from "@/utils";
+import { redis } from "@/lib/redis"
+import { getDate } from "@/utils"
 
 interface AnalyticsArgs {
   retention?: number
@@ -10,7 +10,7 @@ interface TrackOptions {
 }
 
 export class Analytics {
-  private retention = 60 * 60 * 24 * 7;
+  private retention = 60 * 60 * 24 * 7
 
   constructor(opts?: AnalyticsArgs) {
     if (opts?.retention) this.retention = opts.retention
@@ -26,7 +26,6 @@ export class Analytics {
     if (!opts?.persist) {
       await redis.expire(key, this.retention)
     }
-
   }
 }
 
