@@ -54,12 +54,26 @@ const pages: Page[] = [
   },
 ]
 
+interface AnalyticsDashboardProps {
+  avgVisitorsPerDay: string,
+  amtVisitorsToday: number
+}
+
 const valueFormatter = (number: number) =>
   `${Intl.NumberFormat("en").format(number).toString()}`
 
-export function AnalyticsDashboard() {
+export function AnalyticsDashboard({ avgVisitorsPerDay, amtVisitorsToday }: AnalyticsDashboardProps) {
   return (
     <>
+      <Card className="w-full mx-auto max-w-xs">
+        <p className="text-tremor-default text-tremor-content">Avg. visitors/day</p>
+        <p className="text-tremor-content-strong dark:text-dark-tremor-content-strong font-semibold">{avgVisitorsPerDay}</p>
+      </Card>
+
+      <Card className="w-full mx-auto max-w-xs">
+        <p className="text-tremor-default text-tremor-content">Visitors today</p>
+        <p className="text-tremor-content-strong dark:text-dark-tremor-content-strong font-semibold">{amtVisitorsToday}</p>
+      </Card>
       <Card className="p-0 sm:mx-auto sm:max-w-lg">
         <div className="flex items-center justify-between border-b border-tremor-border p-6 dark:border-dark-tremor-border">
           <p className="font-medium text-tremor-content-strong dark:text-dark-tremor-content-strong">
